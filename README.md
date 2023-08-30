@@ -71,7 +71,7 @@ Ensure you have the following installed:
 ### Setup
 
 1. Clone this repository to your local machine:
-   git clone https://github.com/yashodhicy/SchoolLibrary.git
+   git clone https://github.com/tjay1760/school_Library.git
 
 2. Open your terminal and navigate to the project directory:
 cd SchoolLibrary
