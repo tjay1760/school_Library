@@ -9,13 +9,13 @@ class Person
     @parent_permission = parent_permission
   end
 
-  def of_age?
-    @age >= 18
-  end
-
   def can_use_services?
     of_age? || @parent_permission
   end
-end
 
-Person.new(40, 'John')
+  private
+
+  def of_age?
+    @age >= 18
+  end
+end
