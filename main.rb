@@ -1,42 +1,61 @@
 require './app'
 
-def display_menu
-  puts ' '
-  puts 'Please select an option by entering a number'
-  puts '[1] List all books'
-  puts '[2] List all people'
-  puts '[3] Create a person'
-  puts '[4] Create a book'
-  puts '[5] Create a rental'
-  puts '[6] List all rentals for a given person'
-  puts '[7] Exit'
+def display_options
+  puts 'Please choose one of the options: '
+  puts '1. - List all books'
+  puts '2. - List all people'
+  puts '3. - Create a person'
+  puts '4. - Create a book'
+  puts '5. - Create a rental'
+  puts '6. - List all rentals for a given person ID'
+  puts '7. - Exit'
 end
 
-def handle_option(option, app)
-  option_actions = {
-    1 => -> { app.list_all_books },
-    2 => -> { app.list_all_people },
-    3 => -> { app.create_person },
-    4 => -> { app.create_book },
-    5 => -> { app.create_rental },
-    6 => -> { app.list_all_rentals },
-    7 => -> { puts 'Exiting' },
-    default: -> { puts 'Please enter a number between 1 and 7.' }
-  }
+def option_actions(app, option)
+  case option
+  when 1
+    app.list_all_books
+  when 2
+    app.list_all_people
+  when 3
+    app.create_a_person
+  when 4
+    app.create_book
+  when 5
+    app.create_a_rental
+  when 6
+    app.list_rentals
+  else
+    puts 'Thank you for using this app!'
+    exit
+  end
+end
 
-  action = option_actions[option] || option_actions[:default]
-  action.call
+def input_choice
+  puts 'Choose an action'
+  choice = gets.chomp.to_i
+  while choice.nil? || choice < 1 || choice > 7
+    puts 'Invalid input. Please, enter a number between 1 and 7!'
+    print 'Enter a number: '
+    choice = gets.chomp.to_i
+  end
+  choice
+end
+
+def start_app(app)
+  puts 'Welcome to the School Library App!'
+  option = 0
+
+  while option != 7
+    display_options
+    option = input_choice
+    option_actions(app, option)
+  end
 end
 
 def main
   app = App.new
-  @option = 0
-
-  until @option == 7
-    display_menu
-    @option = gets.chomp.to_i
-    handle_option(@option, app)
-  end
+  start_app(app)
 end
 
 main
