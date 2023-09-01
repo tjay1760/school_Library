@@ -2,9 +2,10 @@ require './person'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(classroom, age, name = 'unknown', parent_permmission: true)
-    super(age, name, parent_permmission)
+  def initialize(age, classroom, name, parent_permission: true)
+    super(age, name, parent_permission)
     @classroom = classroom
+    @name = name
   end
 
   def classroom=(classroom)
@@ -16,3 +17,6 @@ class Student < Person
     '¯\\(ツ)/¯'
   end
 end
+student1 = Student.new(50, 'classroom', "jaka", parent_permission: false)
+puts student1.name
+puts student1.age
