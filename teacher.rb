@@ -5,13 +5,10 @@ class Teacher < Person
     super(age, name, parent_permission)
     @specialization = specialization
     @name = name
+    @rentals = []
   end
 
   def can_use_services?
     true
   end
 end
-teacher1 = Teacher.new("MAsters", 53,"LImo")
-puts teacher1.name
-puts teacher1.specialization
-puts teacher1.age

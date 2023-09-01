@@ -6,6 +6,7 @@ class Student < Person
     super(age, name, parent_permission)
     @classroom = classroom
     @name = name
+    @rentals = []
   end
 
   def classroom=(classroom)
@@ -17,6 +18,3 @@ class Student < Person
     '¯\\(ツ)/¯'
   end
 end
-student1 = Student.new(50, 'classroom', "jaka", parent_permission: false)
-puts student1.name
-puts student1.age

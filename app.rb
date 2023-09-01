@@ -2,9 +2,24 @@ require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
-require_relative 'rentals'
+# require_relative 'rentals'
 require_relative 'classroom'
+
+class Rental
+    attr_accessor :date, :book, :person
+  
+    def initialize(date, book, person)
+      @date = date
+      @book = book
+      @person = person
+  
+      book.rentals << self
+      person.rentals << self
+    end
+  end
+  
 class App
+    attr_accessor :books, :people, :rentals
     def initialize
         @people = []
         @books = []
@@ -16,7 +31,7 @@ return puts "No books available" if @books.empty?
 end
 def list_all_people
 return puts "No people available" if @people.empty?
-@people.each do |person, index|  
+@people.each_with_index do |person, index|  
     puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
 end
 end
@@ -39,11 +54,11 @@ def create_student
     puts "Has parent permission [Y/N]"
     permission = gets.chomp.upcase
     if permission == "Y"
-      student = Student.new(age, 'classroom', "name", parent_permission: true)
+      student = Student.new(age, 'classroom', name, parent_permission: true)
       @people << student
       puts 'Student created successfully'
     elsif permission == "N"
-      student = Student.new(age, 'classroom', "name", parent_permission: false)
+      student = Student.new(age, 'classroom', name, parent_permission: false)
       @people << student
       puts 'Student created successfully'
     else
@@ -57,7 +72,7 @@ def create_student
     age = gets.chomp.to_i
     print 'Enter Specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(specialization, age, "name")
+    teacher = Teacher.new(specialization, age, name)
     @people << teacher
     puts 'Teacher created successfully'
   end
@@ -76,6 +91,12 @@ list_all_books
 book_id = gets.chomp.to_i
 puts "Select a person by number"
 list_all_people
+person_id = gets.chomp.to_i
+puts "Enter date"
+date = gets.chomp
+rental = Rental.new(date, books[book_id], people[person_id])
+    @rentals << rental
+    puts 'created a rental.'
 end
 def list_rentals
 end
@@ -83,4 +104,6 @@ end
 app = App.new()
 app.create_a_person
 app.create_a_person
-app.list_all_people
+app.create_book
+app.create_book
+app.create_a_rental
