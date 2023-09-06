@@ -26,6 +26,7 @@ def display_options
       app.rental_lister.list_rentals
     else
       puts 'Thank you for using this app!'
+      save_data
       exit
     end
   end

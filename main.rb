@@ -1,4 +1,3 @@
-  require './app'
 require_relative 'menu'
 
   def main
