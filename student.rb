@@ -17,4 +17,17 @@ class Student < Person
   def play_hooky
     '¯\\(ツ)/¯'
   end
+  def to_h
+    {
+      type: self.class.name,
+      id: @id,
+      name: @name,
+      age: @age,
+      parent_permission: @parent_permission,
+      classroom: @classroom
+    }
+  end
+  def id=(value)
+    @id = value
+  end
 end

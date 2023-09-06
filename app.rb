@@ -1,3 +1,4 @@
+require 'fileutils'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
@@ -36,8 +37,8 @@ Rentals_file = './rentals.json'.freeze
     File.write(file_path, JSON.generate(data.map(&:to_h)))
   end
   def save_data
-    save_json(@books, BOOKS_FILE)
-    save_json(@people, PEOPLE_FILE)
-    save_json(@rentals, RENTALS_FILE)
+    save_json(@books, Books_file)
+    save_json(@people, Poeple_file)
+    save_json(@rentals, Rentals_file)
   end
 end
