@@ -1,10 +1,10 @@
 require_relative 'rentals'
 class RentalLister
-    def initialize(rentals, people, books)
-        @rentals = rentals
-        @people = people
-        @books = books
-      end
+  def initialize(rentals, people, books)
+    @rentals = rentals
+    @people = people
+    @books = books
+  end
 
   def list_rentals
     rental_list = []
@@ -19,5 +19,4 @@ class RentalLister
 
     puts 'No record found for the selected person'
   end
-
 end

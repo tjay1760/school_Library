@@ -27,7 +27,7 @@ describe TrimmerDecorator do
       end
     end
 
-   
+
     context 'when the name is an empty string' do
       let(:nameable) { double('Nameable', correct_name: '') }
 
@@ -35,6 +35,5 @@ describe TrimmerDecorator do
         expect(decorator.correct_name).to eq('')
       end
     end
-
   end
 end

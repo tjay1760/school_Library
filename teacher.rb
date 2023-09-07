@@ -12,6 +12,7 @@ class Teacher < Person
   def can_use_services?
     true
   end
+
   def to_h
     {
       type: self.class.name,
@@ -21,6 +22,7 @@ class Teacher < Person
       specialization: @specialization
     }
   end
+
   def id=(value)
     @id = value
   end

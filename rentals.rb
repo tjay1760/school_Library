@@ -9,6 +9,7 @@ class Rental
     book.rentals << self
     person.rentals << self
   end
+
   def to_h
     {
       date: @date,

@@ -1,4 +1,4 @@
-require_relative '../capitalizedecorator' 
+require_relative '../capitalizedecorator'
 
 
 describe CapitalizeDecorator do

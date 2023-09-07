@@ -17,6 +17,7 @@ class Student < Person
   def play_hooky
     '¯\\(ツ)/¯'
   end
+
   def to_h
     {
       type: self.class.name,
@@ -27,6 +28,7 @@ class Student < Person
       classroom: @classroom
     }
   end
+
   def id=(value)
     @id = value
   end
