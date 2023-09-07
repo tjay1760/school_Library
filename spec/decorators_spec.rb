@@ -1,4 +1,4 @@
-require '../basedecorator'
+require_relative '../basedecorator'
 
 describe BaseDecorator do
   let(:nameable) { double('Nameable') }

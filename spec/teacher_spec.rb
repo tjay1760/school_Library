@@ -1,5 +1,5 @@
-require '../person'
-require '../teacher'
+require_relative '../person'
+require_relative '../teacher'
 
 describe Teacher do
   describe '#initialize' do

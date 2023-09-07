@@ -1,6 +1,6 @@
-require '../rentals'
-require '../book'
-require '../person'
+require_relative '../rentals'
+require_relative '../book'
+require_relative '../person'
 
 describe Rental do
   before(:each) do

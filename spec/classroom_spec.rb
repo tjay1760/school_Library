@@ -1,4 +1,4 @@
-require '../classroom'
+require_relative '../classroom'
 
 describe Classroom do
   describe '#Classroom' do
