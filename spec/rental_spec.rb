@@ -1,7 +1,6 @@
 require_relative '../rentals'
 require_relative '../book'
 require_relative '../person'
-
 describe Rental do
   before(:each) do
     @book = Book.new('Heads First HTML', 'Steve Jobs')

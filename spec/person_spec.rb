@@ -1,5 +1,4 @@
 require_relative '../person'
-
 describe Person do
   describe '#can_use_services' do
     context 'Person is of age' do
