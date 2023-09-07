@@ -27,7 +27,6 @@ describe TrimmerDecorator do
       end
     end
 
-
     context 'when the name is an empty string' do
       let(:nameable) { double('Nameable', correct_name: '') }
 
