@@ -52,14 +52,3 @@ def start_app(app)
     option_actions(app, option)
   end
 end
-
-def start_app(app)
-  puts 'Welcome to the School Library App!'
-  option = 0
-
-  while option != 7
-    display_options
-    option = input_choice
-    option_actions(app, option)
-  end
-end

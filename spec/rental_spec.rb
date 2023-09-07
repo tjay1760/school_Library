@@ -1,11 +1,11 @@
-require_relative '../rentals.rb'
-require_relative '../book.rb'
-require_relative '../person.rb'
+require '../rentals'
+require '../book'
+require '../person'
 
 describe Rental do
   before(:each) do
     @book = Book.new('Heads First HTML', 'Steve Jobs')
-    @person = Person.new(25, "HTML", 'John')
+    @person = Person.new(25, 'HTML', 'John')
     @rental = Rental.new('2023-05-03', @book, @person)
   end
 

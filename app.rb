@@ -2,7 +2,7 @@ require 'fileutils'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
-require_relative 'book.rb'
+require_relative 'book'
 require_relative 'rentals'
 require_relative 'classroom'
 require_relative 'book_creator'
@@ -19,13 +19,13 @@ class App
   attr_accessor :books, :people, :rentals, :book_creator, :book_lister, :person_creator, :person_lister,
                 :rental_creator, :rental_lister
 
-  Books_file = './books.json'.freeze
-  Poeple_file = './poeple.json'.freeze
-  Rentals_file = './rentals.json'.freeze
+  BOOKS_FILE = './books.json'.freeze
+  POEPLE_FILE = './poeple.json'.freeze
+  RENTALS_FILE = './rentals.json'.freeze
   def initialize
-    @people = read_people(Poeple_file) || []
-    @books = read_books(Books_file) || []
-    @rentals = read_rentals(Rentals_file) || []
+    @people = read_people(POEPLE_FILE) || []
+    @books = read_books(BOOKS_FILE) || []
+    @rentals = read_rentals(RENTALS_FILE) || []
     @book_creator = BookCreator.new(@books)
     @book_lister = BookLister.new(@books)
     @person_creator = PersonCreator.new(@people)
@@ -41,8 +41,8 @@ class App
   end
 
   def save_data
-    save_json(@books, Books_file)
-    save_json(@people, Poeple_file)
-    save_json(@rentals, Rentals_file)
+    save_json(@books, BOOKS_FILE)
+    save_json(@people, POEPLE_FILE)
+    save_json(@rentals, RENTALS_FILE)
   end
 end

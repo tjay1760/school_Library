@@ -1,10 +1,11 @@
-require_relative '../book.rb'
+require '../book'
+
 describe Book do
   before :each do
-    @book = Book.new("Fire", "John Smith")
+    @book = Book.new('Fire', 'John Smith')
   end
-  describe "#Books" do
-    it "checks for author and title" do
+  describe '#Books' do
+    it 'checks for author and title' do
       expect(@book.title).to eq('Fire')
       expect(@book.author).to eq('John Smith')
     end

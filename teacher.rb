@@ -1,6 +1,7 @@
 require './person'
 class Teacher < Person
   attr_reader :specialization, :name
+  attr_writer :id
 
   def initialize(specialization, age, name, parent_permission: true)
     super(age, name, parent_permission)
@@ -21,9 +22,5 @@ class Teacher < Person
       age: @age,
       specialization: @specialization
     }
-  end
-
-  def id=(value)
-    @id = value
   end
 end
