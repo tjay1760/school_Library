@@ -12,10 +12,25 @@ describe Teacher do
       expect(teacher.id).to be_a(Integer)
     end
   end
+
   describe '#can_use_services?' do
     it 'returns true' do
-      teacher = Teacher.new('Math', 30, 'james')
+      teacher = Teacher.new('Math', 30, 'James')
       expect(teacher.can_use_services?).to eq(true)
+    end
+  end
+
+  describe '#to_h' do
+    it 'returns a hash with teacher information' do
+      teacher = Teacher.new('Math', 30, 'James')
+      expected_hash = {
+        type: 'Teacher',
+        id: teacher.id,
+        name: 'James',
+        age: 30,
+        specialization: 'Math'
+      }
+      expect(teacher.to_h).to eq(expected_hash)
     end
   end
 end

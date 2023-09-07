@@ -3,7 +3,7 @@ require_relative '../rentals'
 require_relative '../book'
 
 describe Person do
-  describe "#initialize" do
+  describe '#initialize' do
     before(:each) do
       @person = Person.new(20, 'Classroom 101', 'John Doe', parent_permission: true)
       @book = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
